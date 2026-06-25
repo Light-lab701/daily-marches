@@ -1,199 +1,55 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Marchés & Macro — 25/06/2026</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #EEF2F7;
-  color: #1a1a2e;
-  font-size: 14px;
-  line-height: 1.6;
-}
-/* NAV */
-nav {
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 0 32px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-.nav-logo { font-weight: 700; font-size: 16px; color: #1a1a2e; }
-.nav-tag {
-  font-size: 13px;
-  color: #64748b;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-weight: 500;
-}
-.nav-tag.active { background: #f1f5f9; color: #1a1a2e; }
-.nav-badge {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.nav-badge.bullish { background: #dcfce7; color: #16a34a; }
-.nav-badge.bearish { background: #fee2e2; color: #dc2626; }
-.nav-badge.neutral  { background: #f1f5f9; color: #64748b; }
-
-/* TICKER BAR */
-.ticker {
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 8px 32px;
-  display: flex;
-  gap: 28px;
-  overflow-x: auto;
-}
-.t-item { display: flex; flex-direction: column; gap: 1px; white-space: nowrap; }
-.t-label { font-size: 10px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.7px; font-weight: 600; }
-.t-val { font-size: 15px; font-weight: 700; color: #1a1a2e; }
-.t-val.gold { color: #b45309; }
-
-/* LAYOUT */
-.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
-.grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
-@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
-.col-left { display: flex; flex-direction: column; gap: 16px; }
-.col-right { display: flex; flex-direction: column; gap: 16px; }
-
-/* CARDS */
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid #e8edf3;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05);
-}
-.card-title {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: #64748b;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.card p { color: #374151; margin-bottom: 6px; font-size: 13.5px; }
-.card ul { list-style: none; padding: 0; }
-.card ul li {
-  padding: 6px 0;
-  border-bottom: 1px solid #f1f5f9;
-  color: #374151;
-  font-size: 13.5px;
-  padding-left: 10px;
-  position: relative;
-}
-.card ul li:last-child { border: none; }
-.card ul li::before { content: '·'; position: absolute; left: 0; color: #3b82f6; font-weight: 700; }
-.card strong { color: #111827; font-weight: 600; }
-.card em { color: #6b7280; font-style: normal; }
-
-/* CONTEXT TABLE */
-.ctx-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-.ctx-table th { font-size: 11px; color: #94a3b8; text-transform: uppercase; text-align: left; padding: 4px 8px; font-weight: 600; }
-.ctx-table td { padding: 7px 8px; border-top: 1px solid #f1f5f9; font-size: 13.5px; color: #374151; }
-.ctx-table td:first-child { font-weight: 600; color: #111827; }
-
-/* PAIR CARDS GRID */
-.pairs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.pair-card {
-  background: #fff;
-  border: 1px solid #e8edf3;
-  border-radius: 12px;
-  padding: 14px 16px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.04);
-}
-.pair-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-.pair-name { font-size: 15px; font-weight: 700; color: #111827; }
-.pair-val { font-size: 12px; color: #94a3b8; display: block; margin-top: 1px; }
-.arrow { font-size: 20px; font-weight: 700; }
-.arrow.up { color: #16a34a; }
-.arrow.down { color: #dc2626; }
-.arrow.flat { color: #94a3b8; }
-.sentiment-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 7px;
-}
-.sentiment-pill.buyer { background: #dcfce7; color: #15803d; }
-.sentiment-pill.seller { background: #fee2e2; color: #b91c1c; }
-.sentiment-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #374151; margin-bottom: 5px; }
-.long-dot { color: #16a34a; }
-.short-dot { color: #dc2626; }
-.pct { flex: 1; }
-.pct-r { text-align: right; }
-.progress-bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; gap: 1px; margin-bottom: 10px; }
-.bar-green { background: #16a34a; border-radius: 3px 0 0 3px; }
-.bar-red { background: #dc2626; border-radius: 0 3px 3px 0; }
-.pair-levels { font-size: 12px; color: #374151; margin-bottom: 3px; }
-.pair-levels .lbl { font-weight: 600; color: #64748b; margin-right: 4px; }
-.pair-note { font-size: 12px; color: #6b7280; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f1f5f9; font-style: italic; }
-
-/* GOLD CARD */
-.gold-card { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-color: #fde68a; }
-.gold-price { font-size: 28px; font-weight: 800; color: #92400e; margin: 8px 0; }
-
-/* SENTIMENT GAUGE */
-.gauge-wrap { text-align: center; padding: 12px 0; }
-.gauge-circle {
-  width: 130px; height: 130px;
-  border-radius: 50%;
-  background: conic-gradient(#16a34a 0% var(--long), #dc2626 var(--long) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 10px;
-  position: relative;
-}
-.gauge-inner {
-  width: 90px; height: 90px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.gauge-pct { font-size: 22px; font-weight: 800; color: #111827; }
-.gauge-lbl { font-size: 10px; color: #94a3b8; }
-.gauge-legend { display: flex; justify-content: center; gap: 16px; font-size: 12px; }
-.leg-item { display: flex; align-items: center; gap: 5px; }
-.leg-dot { width: 8px; height: 8px; border-radius: 50%; }
-
-/* FOOTER */
-footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 11px; }
-</style>
-</head>
-<body>
-
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Daily Marchés & Macro — 25/06/2026</title><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#EEF2F7;color:#1a1a2e;font-size:14px;line-height:1.6}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
+.nav-logo{font-weight:700;font-size:16px;color:#1a1a2e}
+.nav-tag{font-size:13px;color:#64748b;padding:6px 12px;border-radius:8px;font-weight:500}
+.nav-tag.active{background:#f1f5f9;color:#1a1a2e}
+.nav-badge{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.nav-badge.bullish{background:#dcfce7;color:#16a34a}.nav-badge.bearish{background:#fee2e2;color:#dc2626}.nav-badge.neutral{background:#f1f5f9;color:#64748b}
+.ticker{background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 32px;display:flex;gap:28px;overflow-x:auto}
+.t-item{display:flex;flex-direction:column;gap:1px;white-space:nowrap}
+.t-label{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;font-weight:600}
+.t-val{font-size:15px;font-weight:700;color:#1a1a2e}.t-val.gold{color:#b45309}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.col-left,.col-right{display:flex;flex-direction:column;gap:16px}
+.card{background:#fff;border-radius:16px;padding:20px;border:1px solid #e8edf3;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#64748b;margin-bottom:12px}
+.card p{color:#374151;margin-bottom:6px;font-size:13.5px}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:6px 0 6px 10px;border-bottom:1px solid #f1f5f9;color:#374151;font-size:13.5px;position:relative}
+.card ul li:last-child{border:none}
+.card ul li::before{content:'·';position:absolute;left:0;color:#3b82f6;font-weight:700}
+.card strong{color:#111827;font-weight:600}.card em{color:#6b7280;font-style:normal}
+.ctx-table{width:100%;border-collapse:collapse;margin-top:8px}
+.ctx-table th{font-size:11px;color:#94a3b8;text-transform:uppercase;text-align:left;padding:4px 8px;font-weight:600}
+.ctx-table td{padding:7px 8px;border-top:1px solid #f1f5f9;font-size:13.5px;color:#374151}
+.ctx-table td:first-child{font-weight:600;color:#111827}
+.pairs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.pair-card{background:#fff;border:1px solid #e8edf3;border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.pair-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.pair-name{font-size:15px;font-weight:700;color:#111827}.pair-val{font-size:12px;color:#94a3b8;display:block;margin-top:1px}
+.arrow{font-size:20px;font-weight:700}.arrow.up{color:#16a34a}.arrow.down{color:#dc2626}.arrow.flat{color:#94a3b8}
+.sentiment-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:7px}
+.sentiment-pill.buyer{background:#dcfce7;color:#15803d}.sentiment-pill.seller{background:#fee2e2;color:#b91c1c}
+.sentiment-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#374151;margin-bottom:5px}
+.long-dot{color:#16a34a}.short-dot{color:#dc2626}.pct{flex:1}.pct-r{text-align:right}
+.progress-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:1px;margin-bottom:10px}
+.bar-green{background:#16a34a;border-radius:3px 0 0 3px}.bar-red{background:#dc2626;border-radius:0 3px 3px 0}
+.pair-levels{font-size:12px;color:#374151;margin-bottom:3px}.pair-levels .lbl{font-weight:600;color:#64748b;margin-right:4px}
+.pair-note{font-size:12px;color:#6b7280;margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9;font-style:italic}
+.gold-card{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-color:#fde68a}
+.gold-price{font-size:28px;font-weight:800;color:#92400e;margin:8px 0}
+footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></head><body>
 <nav>
   <span class="nav-logo">MacroDawn</span>
   <span class="nav-tag active">Accueil</span>
   <span class="nav-tag">Market Sentiment</span>
-  <span class="nav-badge bearish">📉 Risk-Off</span>
+  <span class="nav-badge neutral">➡️ Neutre</span>
 </nav>
-
 <div class="ticker">
   <div class="t-item"><div class="t-label">Gold</div><div class="t-val gold">⚠️</div></div>
   <div class="t-item"><div class="t-label">DXY</div><div class="t-val">⚠️</div></div>
@@ -201,427 +57,54 @@ footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 11px; }
   <div class="t-item"><div class="t-label">GBP/USD</div><div class="t-val">⚠️</div></div>
   <div class="t-item"><div class="t-label">USD/JPY</div><div class="t-val">⚠️</div></div>
   <div class="t-item"><div class="t-label">US 10Y</div><div class="t-val">⚠️%</div></div>
-  <div class="t-item"><div class="t-label">US 2Y</div><div class="t-val">⚠️%</div></div>
   <div class="t-item"><div class="t-label">Spread T2-T10</div><div class="t-val">⚠️%</div></div>
 </div>
-
 <div class="container">
   <div style="margin-bottom:20px">
     <h1 style="font-size:22px;font-weight:800;color:#111827">Daily Marchés & Macro</h1>
     <p style="color:#64748b;font-size:13px">25/06/2026 — Jeudi</p>
   </div>
-
   <div class="grid">
-    <!-- COLONNE GAUCHE -->
     <div class="col-left">
-
-      <!-- Session Asie -->
-      <div class="card">
-        <div class="card-title">🌙 Session Asie / Overnight</div>
-        <p>Le dollar reste dominant en toile de fond avec un biais Fed hawkish, ce qui maintient la pression sur les devises cycliques et soutient le mouvement de couverture sur le yen.</p>
-<p>Le pétrole s’est normalisé après l’apaisement géopolitique, ce qui réduit la prime d’inflation et laisse les rendements obligataires élevés plus longtemps.</p>
-<p>Le marché entre sur la séance avec un sentiment modérément défensif, cohérent avec un DXY ferme et un USD/JPY au-dessus des seuils sensibles.</p>
-      </div>
-
-      <!-- Synthèse Macro -->
-      <div class="card">
-        <div class="card-title">📅 Synthèse Macro du Jour</div>
-        <p>08h30 — Publication du PCE de mai aux États-Unis, événement clé du jour, attendu à +4,1% en glissement annuel selon Wells Fargo.</p>
-<p>08h30 — Le PCE sous-jacent est surveillé comme test direct de la posture plus restrictive de la Fed après le ton hawkish récent.</p>
-<p>— Le marché reste focalisé sur le risque de chiffres d’inflation trop fermes, susceptibles de repousser les anticipations d’assouplissement.</p>
-<p>— Les flux macro restent dominés par le thème de domination du dollar et par la sensibilité des devises au différentiel de taux.</p>
-<p>— Le contexte énergétique reste plus calme après la normalisation de l’offre de pétrole, ce qui limite un nouveau choc inflationniste.</p>
-<p>— La géopolitique au Moyen-Orient reste un facteur de second ordre, avec un impact surtout via le pétrole et les anticipations de taux.</p>
-<p>— L’Asie démarre dans une logique prudente, avec le yen toujours exposé aux risques d’intervention et au resserrement de la Banque du Japon.</p>
-<p>— Les marchés actions restent soutenus par l’IA, mais cela n’efface pas le poids du dollar et des rendements obligataires élevés.</p>
-<p>— Le sentiment de marché reste intermédiaire, ni franchement offensif ni franchement panique, avec un score de risque à 42/100.</p>
-<p>— Le biais global reste conditionné par la Fed, le pétrole et le Japon, avec le dollar comme variable de transmission principale.</p>
-      </div>
-
-      <!-- Contexte & Yields -->
+      <div class="card"><div class="card-title">🌙 Session Asie / Overnight</div></div>
+      <div class="card"><div class="card-title">📅 Synthèse Macro du Jour</div></div>
       <div class="card">
         <div class="card-title">📊 Contexte du Jour</div>
-        <table class="ctx-table">
-          <tr><th>Instrument</th><th>Valeur</th><th>Tendance</th></tr>
-          <tr><td>US 10Y</td><td>⚠️%</td><td>stable</td></tr>
-          <tr><td>US 2Y</td><td>⚠️%</td><td>stable</td></tr>
-          <tr><td>Spread T2-T10</td><td>⚠️%</td><td>normale</td></tr>
-          <tr><td>DXY</td><td>⚠️</td><td>↗</td></tr>
-        </table>
-        <div style="margin-top:12px">
-          <p><em>Phase cycle : Expansion | Biais : Risk-Off</em></p>
-<p><strong>Taux &amp; Yields</strong></p>
-<ul>
-<li>US 10Y : 4.402% — stable</li>
-<li>US 2Y : 4.11% — stable</li>
-<li>Spread T2-T10 : 0.292% — normale</li>
-</ul>
-        </div>
+        <table class="ctx-table"><tr><th>Instrument</th><th>Valeur</th><th>Tendance</th></tr>
+        <tr><td>US 10Y</td><td>⚠️%</td><td>stable</td></tr>
+        <tr><td>US 2Y</td><td>⚠️%</td><td>stable</td></tr>
+        <tr><td>Spread T2-T10</td><td>⚠️%</td><td>normale</td></tr>
+        <tr><td>DXY</td><td>⚠️</td><td>—</td></tr></table>
+        <div style="margin-top:12px"></div>
       </div>
-
-      <!-- Gold -->
       <div class="card gold-card">
         <div class="card-title">🥇 Gold (XAU/USD)</div>
-        <div style="display:flex;align-items:baseline;gap:12px">
-          <div class="gold-price">⚠️</div>
-          <span style="font-size:20px">↗</span>
-        </div>
-        
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">62% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">38% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:62%"></div>
-      <div class="bar-red" style="width:38%"></div>
-    </div>
-        <div class="pair-levels"><span class="lbl">Supports</span> 4775 | 4750 | 4700</div>
-        <div class="pair-levels"><span class="lbl">Résistances</span> 4825 | 4870 | 4900</div>
+        <div style="display:flex;align-items:baseline;gap:12px"><div class="gold-price">⚠️</div><span style="font-size:20px">↗</span></div>
+        <div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">62% long</span><span class="short-dot">●</span><span class="pct-r">38% short</span></div><div class="progress-bar"><div class="bar-green" style="width:62%"></div><div class="bar-red" style="width:38%"></div></div>
+        <div class="pair-levels"><span class="lbl">Supports</span>4775 | 4750 | 4700</div>
+        <div class="pair-levels"><span class="lbl">Résistances</span>4825 | 4870 | 4900</div>
         <div class="pair-note">Le PCE peut relancer la volatilité sur l’or via le dollar et les rendements obligataires.</div>
       </div>
-
-      <!-- Paires Forex -->
       <div class="card">
         <div class="card-title">💱 Niveaux Forex du Jour</div>
         <div class="pairs-grid">
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">DXY</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow up">↗</span>
-      </div>
-      
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">100% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">0% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:100%"></div>
-      <div class="bar-red" style="width:0%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 101.20 | 100.85
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 101.85 | 102.20
-      </div>
-      <div class="pair-note">Le dollar reste la jambe forte du jour tant que le PCE ne déçoit pas.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">EUR/USD</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow down">↘</span>
-      </div>
-      
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">76% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">24% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:76%"></div>
-      <div class="bar-red" style="width:24%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 1.1310 | 1.1280 | 1.1240
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 1.1375 | 1.1410 | 1.1450
-      </div>
-      <div class="pair-note">L’euro reste fragile car le marché privilégie encore le portage en dollar.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">GBP/USD</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow down">↘</span>
-      </div>
-      
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">66% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">34% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:66%"></div>
-      <div class="bar-red" style="width:34%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 1.3130 | 1.3095 | 1.3040
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 1.3195 | 1.3240 | 1.3280
-      </div>
-      <div class="pair-note">La livre suit le biais de marché tant que les rendements obligataires américains restent élevés.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">USD/JPY</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow up">↗</span>
-      </div>
-      
-    <div class="sentiment-pill seller">Majorité vendeuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">23% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">77% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:23%"></div>
-      <div class="bar-red" style="width:77%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 161.20 | 160.70 | 160.20
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 162.05 | 162.40 | 163.00
-      </div>
-      <div class="pair-note">Le yen reste sous pression car la Fed hawkish domine malgré les risques d’intervention japonaise.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">USD/CHF</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow up">↗</span>
-      </div>
-      
-    <div class="sentiment-pill seller">Majorité vendeuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">31% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">69% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:31%"></div>
-      <div class="bar-red" style="width:69%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 0.8095 | 0.8060
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 0.8155 | 0.8190
-      </div>
-      <div class="pair-note">Le franc suisse suit le flux de refuge, mais le dollar garde l’avantage tactique.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">AUD/USD</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow down">↘</span>
-      </div>
-      
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">72% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">28% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:72%"></div>
-      <div class="bar-red" style="width:28%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 0.6870 | 0.6840
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 0.6925 | 0.6960
-      </div>
-      <div class="pair-note">L’australien reste pénalisé par le dollar fort et par un sentiment de marché défensif.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">NZD/USD</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow down">↘</span>
-      </div>
-      
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">94% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">6% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:94%"></div>
-      <div class="bar-red" style="width:6%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 0.5620 | 0.5585
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 0.5670 | 0.5705
-      </div>
-      <div class="pair-note">Le kiwi reste le plus vulnérable si le PCE confirme une Fed restrictive.</div>
-    </div>
-          
-    <div class="pair-card">
-      <div class="pair-head">
-        <div>
-          <span class="pair-name">USD/CAD</span>
-          <span class="pair-val">⚠️</span>
-        </div>
-        <span class="arrow up">↗</span>
-      </div>
-      
-    <div class="sentiment-pill seller">Majorité vendeuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">5% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">95% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:5%"></div>
-      <div class="bar-red" style="width:95%"></div>
-    </div>
-      <div class="pair-levels">
-        <span class="lbl">Supports</span> 1.4195 | 1.4160
-      </div>
-      <div class="pair-levels">
-        <span class="lbl">Résistances</span> 1.4265 | 1.4310
-      </div>
-      <div class="pair-note">Le dollar canadien reste freiné car la détente du pétrole réduit son soutien fondamental.</div>
-    </div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">DXY</span><span class="pair-val">⚠️</span></div><span class="arrow up">↗</span></div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">100% long</span><span class="short-dot">●</span><span class="pct-r">0% short</span></div><div class="progress-bar"><div class="bar-green" style="width:100%"></div><div class="bar-red" style="width:0%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>4775 | 4750 | 4700</div><div class="pair-levels"><span class="lbl">Résistances</span>4825 | 4870 | 4900</div><div class="pair-note">Le PCE peut relancer la volatilité sur l’or via le dollar et les rendements obligataires.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">EUR/USD</span><span class="pair-val">⚠️</span></div><span class="arrow down">↘</span></div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">76% long</span><span class="short-dot">●</span><span class="pct-r">24% short</span></div><div class="progress-bar"><div class="bar-green" style="width:76%"></div><div class="bar-red" style="width:24%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>1.1310 | 1.1280 | 1.1240</div><div class="pair-levels"><span class="lbl">Résistances</span>1.1375 | 1.1410 | 1.1450</div><div class="pair-note">L’euro reste fragile car le marché privilégie encore le portage en dollar.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">GBP/USD</span><span class="pair-val">⚠️</span></div><span class="arrow down">↘</span></div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">66% long</span><span class="short-dot">●</span><span class="pct-r">34% short</span></div><div class="progress-bar"><div class="bar-green" style="width:66%"></div><div class="bar-red" style="width:34%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>1.3130 | 1.3095 | 1.3040</div><div class="pair-levels"><span class="lbl">Résistances</span>1.3195 | 1.3240 | 1.3280</div><div class="pair-note">La livre suit le biais de marché tant que les rendements obligataires américains restent élevés.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">USD/JPY</span><span class="pair-val">⚠️</span></div><span class="arrow up">↗</span></div><div class="sentiment-pill seller">Majorité vendeuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">23% long</span><span class="short-dot">●</span><span class="pct-r">77% short</span></div><div class="progress-bar"><div class="bar-green" style="width:23%"></div><div class="bar-red" style="width:77%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>4775 | 4750 | 4700</div><div class="pair-levels"><span class="lbl">Résistances</span>4825 | 4870 | 4900</div><div class="pair-note">Le PCE peut relancer la volatilité sur l’or via le dollar et les rendements obligataires.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">USD/CHF</span><span class="pair-val">⚠️</span></div><span class="arrow up">↗</span></div><div class="sentiment-pill seller">Majorité vendeuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">31% long</span><span class="short-dot">●</span><span class="pct-r">69% short</span></div><div class="progress-bar"><div class="bar-green" style="width:31%"></div><div class="bar-red" style="width:69%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>0.8095 | 0.8060</div><div class="pair-levels"><span class="lbl">Résistances</span>0.8155 | 0.8190</div><div class="pair-note">Le franc suisse suit le flux de refuge, mais le dollar garde l’avantage tactique.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">AUD/USD</span><span class="pair-val">⚠️</span></div><span class="arrow down">↘</span></div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">72% long</span><span class="short-dot">●</span><span class="pct-r">28% short</span></div><div class="progress-bar"><div class="bar-green" style="width:72%"></div><div class="bar-red" style="width:28%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>0.6870 | 0.6840</div><div class="pair-levels"><span class="lbl">Résistances</span>0.6925 | 0.6960</div><div class="pair-note">L’australien reste pénalisé par le dollar fort et par un sentiment de marché défensif.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">NZD/USD</span><span class="pair-val">⚠️</span></div><span class="arrow down">↘</span></div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">94% long</span><span class="short-dot">●</span><span class="pct-r">6% short</span></div><div class="progress-bar"><div class="bar-green" style="width:94%"></div><div class="bar-red" style="width:6%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>0.5620 | 0.5585</div><div class="pair-levels"><span class="lbl">Résistances</span>0.5670 | 0.5705</div><div class="pair-note">Le kiwi reste le plus vulnérable si le PCE confirme une Fed restrictive.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">USD/CAD</span><span class="pair-val">⚠️</span></div><span class="arrow up">↗</span></div><div class="sentiment-pill seller">Majorité vendeuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">5% long</span><span class="short-dot">●</span><span class="pct-r">95% short</span></div><div class="progress-bar"><div class="bar-green" style="width:5%"></div><div class="bar-red" style="width:95%"></div></div><div class="pair-levels"><span class="lbl">Supports</span>1.4195 | 1.4160</div><div class="pair-levels"><span class="lbl">Résistances</span>1.4265 | 1.4310</div><div class="pair-note">Le dollar canadien reste freiné car la détente du pétrole réduit son soutien fondamental.</div></div>
         </div>
       </div>
-
     </div>
-
-    <!-- COLONNE DROITE -->
     <div class="col-right">
-
-      <!-- Sentiment MacroDawn -->
       <div class="card">
-        <div class="card-title">📈 Market Sentiment</div>
+        <div class="card-title">📈 Market Sentiment MacroDawn</div>
         <p style="font-size:11px;color:#94a3b8;margin-bottom:12px">Ce que font les traders</p>
-        
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">EUR/USD</span>
-          </div>
-          
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">76% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">24% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:76%"></div>
-      <div class="bar-red" style="width:24%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">GBP/USD</span>
-          </div>
-          
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">66% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">34% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:66%"></div>
-      <div class="bar-red" style="width:34%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">XAU/USD</span>
-          </div>
-          
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">62% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">38% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:62%"></div>
-      <div class="bar-red" style="width:38%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">AUD/USD</span>
-          </div>
-          
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">72% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">28% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:72%"></div>
-      <div class="bar-red" style="width:28%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">NZD/USD</span>
-          </div>
-          
-    <div class="sentiment-pill buyer">Majorité acheteuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">94% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">6% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:94%"></div>
-      <div class="bar-red" style="width:6%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">/USDCAD</span>
-          </div>
-          
-    <div class="sentiment-pill seller">Majorité vendeuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">5% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">95% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:5%"></div>
-      <div class="bar-red" style="width:95%"></div>
-    </div>
-        </div>
-        <div style="margin-bottom:16px">
-          <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-            <span style="font-weight:600;font-size:13px">/USDJPY</span>
-          </div>
-          
-    <div class="sentiment-pill seller">Majorité vendeuse</div>
-    <div class="sentiment-row">
-      <span class="long-dot">●</span> <span class="pct">23% long</span>
-      <span class="short-dot">●</span> <span class="pct-r">77% short</span>
-    </div>
-    <div class="progress-bar">
-      <div class="bar-green" style="width:23%"></div>
-      <div class="bar-red" style="width:77%"></div>
-    </div>
-        </div>
+        <div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">EUR/USD</div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">76% long</span><span class="short-dot">●</span><span class="pct-r">24% short</span></div><div class="progress-bar"><div class="bar-green" style="width:76%"></div><div class="bar-red" style="width:24%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">GBP/USD</div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">66% long</span><span class="short-dot">●</span><span class="pct-r">34% short</span></div><div class="progress-bar"><div class="bar-green" style="width:66%"></div><div class="bar-red" style="width:34%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">XAU/USD</div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">62% long</span><span class="short-dot">●</span><span class="pct-r">38% short</span></div><div class="progress-bar"><div class="bar-green" style="width:62%"></div><div class="bar-red" style="width:38%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">AUD/USD</div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">72% long</span><span class="short-dot">●</span><span class="pct-r">28% short</span></div><div class="progress-bar"><div class="bar-green" style="width:72%"></div><div class="bar-red" style="width:28%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">NZD/USD</div><div class="sentiment-pill buyer">Majorité acheteuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">94% long</span><span class="short-dot">●</span><span class="pct-r">6% short</span></div><div class="progress-bar"><div class="bar-green" style="width:94%"></div><div class="bar-red" style="width:6%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">USD/CAD</div><div class="sentiment-pill seller">Majorité vendeuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">5% long</span><span class="short-dot">●</span><span class="pct-r">95% short</span></div><div class="progress-bar"><div class="bar-green" style="width:5%"></div><div class="bar-red" style="width:95%"></div></div></div><div style="margin-bottom:14px"><div style="font-weight:600;font-size:13px;margin-bottom:5px">USD/JPY</div><div class="sentiment-pill seller">Majorité vendeuse</div><div class="sentiment-row"><span class="long-dot">●</span><span class="pct">23% long</span><span class="short-dot">●</span><span class="pct-r">77% short</span></div><div class="progress-bar"><div class="bar-green" style="width:23%"></div><div class="bar-red" style="width:77%"></div></div></div>
       </div>
-
-      <!-- Vs la carte -->
       <div class="card">
         <div class="card-title">🎯 Aujourd'hui vs la Carte</div>
         <p>🎯 AUJOURD'HUI vs LA CARTE*</p>
@@ -631,12 +114,8 @@ footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 11px; }
 </ul>
 <p>→ Valide sur ton H4 avant toute décision.</p>
       </div>
-
     </div>
   </div>
 </div>
-
-<footer>Daily Marchés & Macro · Généré le 25/06/2026 à 08:08 UTC · Données : APIs marché + MacroDawn + Novex</footer>
-
-</body>
-</html>
+<footer>Daily Marchés & Macro · 25/06/2026 08:18 UTC · MacroDawn + Novex + APIs marché</footer>
+</body></html>
