@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Backlog — Semaine du 26/06/2026</title><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#EEF2F7;color:#1a1a2e;font-size:14px;line-height:1.6}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
+.nav-logo{font-weight:700;font-size:16px;color:#1a1a2e}
+.nav-tag{font-size:13px;color:#64748b;padding:6px 12px;border-radius:8px;font-weight:500;text-decoration:none}
+.nav-tag.active{background:#f1f5f9;color:#1a1a2e}
+.container{max-width:900px;margin:0 auto;padding:24px 20px}
+.section{margin-bottom:28px}
+.section-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#94a3b8;margin-bottom:12px;padding-left:4px}
+.card{background:#fff;border-radius:16px;padding:0;border:1px solid #e8edf3;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden}
+.item{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;border-bottom:1px solid #f1f5f9}
+.item:last-child{border-bottom:none}
+.badge{flex-shrink:0;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;margin-top:2px}
+.badge.weekend{background:#ede9fe;color:#7c3aed}
+.badge.urgent{background:#fee2e2;color:#dc2626}
+.badge.normal{background:#dbeafe;color:#1d4ed8}
+.badge.low{background:#f1f5f9;color:#64748b}
+.badge.done{background:#dcfce7;color:#16a34a}
+.badge.warn{background:#fef3c7;color:#b45309}
+.item-body{flex:1}
+.item-title{font-weight:600;color:#111827;font-size:14px;margin-bottom:3px}
+.item-desc{color:#6b7280;font-size:13px}
+.item-proj{font-size:11px;color:#94a3b8;margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}
+</style></head><body>
+<nav>
+  <span class="nav-logo">Backlog</span>
+  <a class="nav-tag" href="https://light-lab701.github.io/daily-marches/">Daily</a>
+  <a class="nav-tag" href="https://light-lab701.github.io/daily-marches/weekly/">Weekly</a>
+  <span class="nav-tag active">Backlog</span>
+</nav>
+<div class="container">
+  <div style="margin-bottom:24px">
+    <h1 style="font-size:22px;font-weight:800;color:#111827">Ce qu'on a dit de faire</h1>
+    <p style="color:#64748b;font-size:13px">Semaine du 26/06/2026 — tout ce qui est en attente</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Ce week-end</div>
+    <div class="card">
+      <div class="item">
+        <span class="badge weekend">Weekend</span>
+        <div class="item-body">
+          <div class="item-title">Memory bank — architecture universelle</div>
+          <div class="item-desc">Implémenter le concept de petits fichiers thématiques (core/ + trading/ + vault/ + scripts/...) comme colonne vertébrale de tous les projets. Repo de référence cloné : <code>Repos clonés/ai-driven-dev-framework/</code>. Travailler depuis la racine <code>.syncr_projets</code>.</div>
+          <div class="item-proj">Global — Infrastructure</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">À faire bientôt</div>
+    <div class="card">
+      <div class="item">
+        <span class="badge normal">Scripts</span>
+        <div class="item-body">
+          <div class="item-title">Planificateur Windows — Daily Fonda</div>
+          <div class="item-desc">Intégrer <code>publish-daily-html.py</code> dans le Planificateur de tâches Windows pour un lancement automatique le matin. Sans ça le rapport daily doit être déclenché manuellement.</div>
+          <div class="item-proj">_scripts</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge urgent">Retard</span>
+        <div class="item-body">
+          <div class="item-title">BRVM — Fix scheduler (traîne depuis le 03-06)</div>
+          <div class="item-desc">Le scheduler BRVM s'est lancé avec 3h45 de retard le 02-06. Fix accepté : ajouter un second horaire de secours le soir + anti-spam Telegram si rien de nouveau. Pas de confirmation d'implémentation depuis.</div>
+          <div class="item-proj">brvm-decisions</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge normal">Tolia</span>
+        <div class="item-body">
+          <div class="item-title">Phase 3.4 — Audit responsive mobile</div>
+          <div class="item-desc">Phase 3.1+3.2+3.3 terminées. Reste 3.4 (audit mobile) puis Phase 4.</div>
+          <div class="item-proj">Tolia</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge normal">Obsidian</span>
+        <div class="item-body">
+          <div class="item-title">Retirer tripwire <code>audit_taille_vault</code> de weekly-angela.py</div>
+          <div class="item-desc">Mission accomplie (nodes parasites corrigés via .graphifyignore). Le code mort reste dans le script — le retirer pour éviter la confusion.</div>
+          <div class="item-proj">_scripts / obsidian</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge normal">Obsidian</span>
+        <div class="item-body">
+          <div class="item-title">Run graphify complet — début juillet</div>
+          <div class="item-desc">Le graphe contient des nodes parasites (Daily/Weekly trader). Après suppression des notes juin dans Obsidian → refaire un run complet (pas --update). Ne pas faire avant début juillet.</div>
+          <div class="item-proj">obsidian</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge warn">Trancher</span>
+        <div class="item-body">
+          <div class="item-title">Goulettes/CLAUDE.md — Contradiction HeyGen vs CapCut</div>
+          <div class="item-desc">L'intro et le Stack mentionnent encore HeyGen (avatar), mais la décision du 25-06 dit HeyGen abandonné, CapCut retenu, pas d'avatar. Mettre l'intro à jour ou laisser ?</div>
+          <div class="item-proj">Goulettes</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge normal">Trading</span>
+        <div class="item-body">
+          <div class="item-title">Vérifier charts clôture sur prochain trade</div>
+          <div class="item-desc">Les charts de clôture/post-trade n'ont pas encore été testés sur un vrai trade depuis le fix du 23-06. À observer au prochain trade fermé.</div>
+          <div class="item-proj">journal-trading</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">À regarder un jour (basse priorité)</div>
+    <div class="card">
+      <div class="item">
+        <span class="badge low">Optionnel</span>
+        <div class="item-body">
+          <div class="item-title">skills.sh — installation optionnelle</div>
+          <div class="item-desc">Top picks identifiés : <code>just-scrape</code> (scraping avancé), <code>pdf</code> (relevés courtier → Supabase), <code>find-skills</code> (méta-skill), <code>supabase</code> officiel, <code>diagnose</code> (debug avancé).</div>
+          <div class="item-proj">Global</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge low">Basse priorité</span>
+        <div class="item-body">
+          <div class="item-title">PROTOCOLE-IA.md — passage brouillon → stable-v1</div>
+          <div class="item-desc">Condition : 3 sessions d'une IA tierce (Codex/Antigravity) sans erreur de protocole + passe Grincheux. Pas encore déclenchée depuis le 06-06.</div>
+          <div class="item-proj">obsidian / global</div>
+        </div>
+      </div>
+      <div class="item">
+        <span class="badge low">Cosmétique</span>
+        <div class="item-body">
+          <div class="item-title">Obsidian — 2 écarts CLAUDE.md ↔ AGENTS.md</div>
+          <div class="item-desc">Thème « Shimmering Focus » + table des 3 templates pas reflétés dans AGENTS.md. À faire seulement si on veut le miroir parfait.</div>
+          <div class="item-proj">obsidian</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>Backlog Elvis · 26/06/2026 · Généré depuis les sessions et la conversation du jour</footer>
+</body></html>
