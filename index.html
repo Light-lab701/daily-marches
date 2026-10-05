@@ -1,72 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'unsafe-inline'; img-src 'none'; object-src 'none'; base-uri 'self'">
-<title>Daily Marchés & Macro — 05/10/2026</title><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#EEF2F7;color:#1a1a2e;font-size:14px;line-height:1.6}
-nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
-.nav-logo{font-weight:700;font-size:16px;color:#1a1a2e}
-.nav-tag{font-size:13px;color:#64748b;padding:6px 12px;border-radius:8px;font-weight:500;text-decoration:none}
-.nav-tag.active{background:#f1f5f9;color:#1a1a2e}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-r5iDVDLeEJ4tfGQ8wprwlL9ChsMiltO7Xl1TskzK3IM='; style-src 'unsafe-inline'; img-src 'none'; object-src 'none'; base-uri 'self'"><script>var f=new URLSearchParams(location.search).get("fond");if(f==="blanc"||f==="creme"||f==="sombre"){document.documentElement.dataset.fond=f;addEventListener("DOMContentLoaded",function(){document.querySelectorAll("a[data-onglet]").forEach(function(a){a.setAttribute("href",a.getAttribute("href").split("?")[0]+"?fond="+f)})})}</script>
+<title>Daily Marchés & Macro — 05/10/2026</title><style>:root,[data-fond=blanc]{--fond:#FFFFFF;--carte:#F8F4EC;--texte:#2B1F1A;--doux:#8B7355;--or:#A8864A;--titre:#7A5C1E;--ligne:#ECE3D2;--ok:#3F6B3A;--okf:#EEF3EA;--att:#8A5A12;--attf:#FBF1DF;--dan:#8E2F25;--danf:#F8E8E5;--ombre:rgba(0,0,0,.05);color-scheme:light}
+[data-fond=creme]{--fond:#F6F0E3;--carte:#FFFFFF;--texte:#2B1F1A;--doux:#6B573D;--or:#A8864A;--titre:#7A5C1E;--ligne:#E3D6BC;--ok:#3F6B3A;--okf:#EEF3EA;--att:#8A5A12;--attf:#FBF1DF;--dan:#8E2F25;--danf:#F8E8E5;--ombre:rgba(0,0,0,.06);color-scheme:light}
+[data-fond=sombre]{--fond:#0D0D0D;--carte:#2B1F1A;--texte:#E8DCC0;--doux:#B09A7C;--or:#C8A96B;--titre:#C8A96B;--ligne:#4A3527;--ok:#9CC28F;--okf:#1E2A1B;--att:#E0B060;--attf:#2E2414;--dan:#E08A7E;--danf:#2E1714;--ombre:rgba(0,0,0,.5);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--fond);color:var(--texte);font-size:14px;line-height:1.6}
+nav{background:var(--fond);border-bottom:1px solid var(--or);padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
+.nav-logo{font-weight:700;font-size:16px;color:var(--titre)}
+.nav-tag{font-size:13px;color:var(--doux);padding:6px 12px;border-radius:8px;font-weight:500;text-decoration:none}
+.nav-tag.active{background:var(--carte);color:var(--titre)}
 .nav-badge{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
-.nav-badge.bullish{background:#dcfce7;color:#16a34a}.nav-badge.bearish{background:#fee2e2;color:#dc2626}.nav-badge.neutral{background:#f1f5f9;color:#64748b}
-.ticker{background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 32px;display:flex;gap:28px;overflow-x:auto}
+.nav-badge.bullish{background:var(--okf);color:var(--ok)}.nav-badge.bearish{background:var(--danf);color:var(--dan)}.nav-badge.neutral{background:var(--carte);color:var(--doux)}
+.ticker{background:var(--fond);border-bottom:1px solid var(--ligne);padding:8px 32px;display:flex;gap:28px;overflow-x:auto}
 .t-item{display:flex;flex-direction:column;gap:1px;white-space:nowrap}
-.t-label{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;font-weight:600}
-.t-val{font-size:15px;font-weight:700;color:#1a1a2e}.t-val.gold{color:#b45309}
+.t-label{font-size:10px;color:var(--titre);text-transform:uppercase;letter-spacing:.7px;font-weight:600}
+.t-val{font-size:15px;font-weight:700;color:var(--texte)}.t-val.gold{color:var(--att)}
 .container{max-width:1200px;margin:0 auto;padding:24px 20px}
 .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 .col-left,.col-right{display:flex;flex-direction:column;gap:16px}
-.card{background:#fff;border-radius:16px;padding:20px;border:1px solid #e8edf3;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#64748b;margin-bottom:12px}
-.card p{color:#374151;margin-bottom:6px;font-size:13.5px}
+.card{background:var(--carte);border-radius:16px;padding:20px;border:1px solid var(--ligne);box-shadow:0 1px 3px var(--ombre)}
+.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--titre);margin-bottom:12px}
+.card p{color:var(--texte);margin-bottom:6px;font-size:13.5px}
 .card ul,.card ol{list-style:none;padding:0}
-.card ul li,.card ol li{padding:6px 0 6px 10px;border-bottom:1px solid #f1f5f9;color:#374151;font-size:13.5px;position:relative}
+.card ul li,.card ol li{padding:6px 0 6px 10px;border-bottom:1px solid var(--ligne);color:var(--texte);font-size:13.5px;position:relative}
 .card ul li:last-child,.card ol li:last-child{border:none}
-.card ul li::before,.card ol li::before{content:'·';position:absolute;left:0;color:#3b82f6;font-weight:700}
-.card strong{color:#111827;font-weight:600}.card em{color:#6b7280;font-style:normal}
-.card h1,.card h2,.card h3{color:#111827;font-weight:700;margin:10px 0 6px;line-height:1.3}
+.card ul li::before,.card ol li::before{content:'·';position:absolute;left:0;color:var(--or);font-weight:700}
+.card strong{color:var(--texte);font-weight:600}.card em{color:var(--doux);font-style:normal}
+.card h1,.card h2,.card h3{color:var(--titre);font-weight:700;margin:10px 0 6px;line-height:1.3}
 .ctx-table{width:100%;border-collapse:collapse;margin-top:8px}
-.ctx-table th{font-size:11px;color:#94a3b8;text-transform:uppercase;text-align:left;padding:4px 8px;font-weight:600}
-.ctx-table td{padding:7px 8px;border-top:1px solid #f1f5f9;font-size:13.5px;color:#374151}
-.ctx-table td:first-child{font-weight:600;color:#111827}
+.ctx-table th{font-size:11px;color:var(--titre);text-transform:uppercase;text-align:left;padding:4px 8px;font-weight:600}
+.ctx-table td{padding:7px 8px;border-top:1px solid var(--ligne);font-size:13.5px;color:var(--texte)}
+.ctx-table td:first-child{font-weight:600;color:var(--texte)}
 .pairs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.pair-card{background:#fff;border:1px solid #e8edf3;border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.pair-card{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:14px 16px;box-shadow:0 1px 2px var(--ombre)}
 .pair-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
-.pair-name{font-size:15px;font-weight:700;color:#111827}.pair-val{font-size:12px;color:#94a3b8;display:block;margin-top:1px}
-.arrow{font-size:20px;font-weight:700}.arrow.up{color:#16a34a}.arrow.down{color:#dc2626}.arrow.flat{color:#94a3b8}
+.pair-name{font-size:15px;font-weight:700;color:var(--texte)}.pair-val{font-size:12px;color:var(--doux);display:block;margin-top:1px}
+.arrow{font-size:20px;font-weight:700}.arrow.up{color:var(--ok)}.arrow.down{color:var(--dan)}.arrow.flat{color:var(--doux)}
 .sentiment-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:7px}
-.sentiment-pill.buyer{background:#dcfce7;color:#15803d}.sentiment-pill.seller{background:#fee2e2;color:#b91c1c}
-.sentiment-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#374151;margin-bottom:5px}
-.long-dot{color:#16a34a}.short-dot{color:#dc2626}.pct{flex:1}.pct-r{text-align:right}
+.sentiment-pill.buyer{background:var(--okf);color:var(--ok)}.sentiment-pill.seller{background:var(--danf);color:var(--dan)}
+.sentiment-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--texte);margin-bottom:5px}
+.long-dot{color:var(--ok)}.short-dot{color:var(--dan)}.pct{flex:1}.pct-r{text-align:right}
 .progress-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:1px;margin-bottom:10px}
-.bar-green{background:#16a34a;border-radius:3px 0 0 3px}.bar-red{background:#dc2626;border-radius:0 3px 3px 0}
-.pair-levels{font-size:12px;color:#374151;margin-bottom:3px}.pair-levels .lbl{font-weight:600;color:#64748b;margin-right:4px}
-.pair-note{font-size:12px;color:#6b7280;margin-top:8px;padding-top:8px;border-top:1px solid #f1f5f9;font-style:italic}
-.retenir-card{background:#eff6ff;border-color:#bfdbfe}.retenir-card p{color:#1e3a8a;font-size:14.5px;font-weight:500}
-.gold-card{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-color:#fde68a}
-.gold-price{font-size:28px;font-weight:800;color:#92400e;margin:8px 0}
-footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></head><body>
+.bar-green{background:var(--ok);border-radius:3px 0 0 3px}.bar-red{background:var(--dan);border-radius:0 3px 3px 0}
+.pair-levels{font-size:12px;color:var(--texte);margin-bottom:3px}.pair-levels .lbl{font-weight:600;color:var(--doux);margin-right:4px}
+.pair-note{font-size:12px;color:var(--doux);margin-top:8px;padding-top:8px;border-top:1px solid var(--ligne);font-style:italic}
+.retenir-card{background:var(--attf);border-color:var(--or)}.retenir-card p{color:var(--texte);font-size:14.5px;font-weight:500}
+.gold-card{background:var(--attf);border-color:var(--or)}
+.gold-price{font-size:28px;font-weight:800;color:var(--att);margin:8px 0}
+.card a{color:var(--titre)}
+footer{text-align:center;padding:24px;color:var(--doux);font-size:11px}</style></head><body>
 <nav>
   <span class="nav-logo">Daily Fonda</span>
   <span class="nav-tag active">Daily</span>
-  <a class="nav-tag" href="weekly/">Weekly</a>
-  <a class="nav-tag" href="newsletter/">Newsletter</a>
+  <a class="nav-tag" data-onglet href="weekly/">Weekly</a>
+  <a class="nav-tag" data-onglet href="newsletter/">Newsletter</a>
   <span class="nav-badge neutral">➡️ Neutre</span>
 </nav>
 <div class="ticker">
-  <div class="t-item"><div class="t-label">Gold</div><div class="t-val gold">4183.3</div></div>
-  <div class="t-item"><div class="t-label">DXY</div><div class="t-val">102.29</div></div>
+  <div class="t-item"><div class="t-label">Gold</div><div class="t-val gold">4163.0</div></div>
+  <div class="t-item"><div class="t-label">DXY</div><div class="t-val">102.2</div></div>
   <div class="t-item"><div class="t-label">EUR/USD</div><div class="t-val">1.125</div></div>
   <div class="t-item"><div class="t-label">GBP/USD</div><div class="t-val">1.3232</div></div>
   <div class="t-item"><div class="t-label">USD/JPY</div><div class="t-val">157.73</div></div>
-  <div class="t-item"><div class="t-label">US 10Y</div><div class="t-val">5.277%</div></div>
-  <div class="t-item"><div class="t-label">Spread T2-T10</div><div class="t-val">0.447%</div></div>
+  <div class="t-item"><div class="t-label">US 10Y</div><div class="t-val">5.324%</div></div>
+  <div class="t-item"><div class="t-label">Spread T2-T10</div><div class="t-val">0.494%</div></div>
 </div>
 <div class="container">
   <div style="margin-bottom:20px">
-    <h1 style="font-size:22px;font-weight:800;color:#111827">Daily Marchés & Macro</h1>
-    <p style="color:#64748b;font-size:13px">05/10/2026 — Lundi</p>
+    <h1 style="font-size:22px;font-weight:800;color:var(--titre)">Daily Marchés & Macro</h1>
+    <p style="color:var(--doux);font-size:13px">05/10/2026 — Lundi</p>
   </div>
   <div class="grid">
     <div class="col-left">
@@ -90,14 +94,14 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></hea
       <div class="card">
         <div class="card-title">📊 Contexte du Jour</div>
         <table class="ctx-table"><tr><th>Instrument</th><th>Valeur</th><th>Tendance</th></tr>
-        <tr><td>US 10Y</td><td>5.277%</td><td>stable</td></tr>
+        <tr><td>US 10Y</td><td>5.324%</td><td>stable</td></tr>
         <tr><td>US 2Y</td><td>4.83%</td><td>stable</td></tr>
-        <tr><td>Spread T2-T10</td><td>0.447%</td><td>normale</td></tr>
-        <tr><td>DXY</td><td>102.29</td><td>—</td></tr></table>
+        <tr><td>Spread T2-T10</td><td>0.494%</td><td>normale</td></tr>
+        <tr><td>DXY</td><td>102.2</td><td>—</td></tr></table>
       </div>
       <div class="card gold-card">
         <div class="card-title">🥇 Gold (XAU/USD)</div>
-        <div style="display:flex;align-items:baseline;gap:12px"><div class="gold-price">4183.3</div><span style="font-size:20px">↗</span></div>
+        <div style="display:flex;align-items:baseline;gap:12px"><div class="gold-price">4163.0</div><span style="font-size:20px">↗</span></div>
         <div class="pair-levels"><span class="lbl">Supports</span>4160 | 4135 | 4100</div>
         <div class="pair-levels"><span class="lbl">Résistances</span>4200 | 4230 | 4275</div>
         <div class="pair-note">Le recul des créations d’emplois à 29 000 soutient l’or, tandis que la probabilité de hausse des taux en octobre, à 22 %, réduit la pression monétaire. La faiblesse reste limitée par le rendement américain à 5,277 %, qui augmente le coût d’opportunité du métal. Le risque principal vient d’un indice des services à 55,1 ou plus. Verdict : biais ↗ au-dessus de 4160, mais résistance à 4200.</div>
@@ -105,7 +109,7 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></hea
       <div class="card">
         <div class="card-title">💱 Niveaux Forex du Jour</div>
         <div class="pairs-grid">
-          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">DXY</span><span class="pair-val">102.29</span></div><span class="arrow up">↗</span></div><div class="pair-levels"><span class="lbl">Supports</span>101.80 | 101.20</div><div class="pair-levels"><span class="lbl">Résistances</span>102.80 | 103.40</div><div class="pair-note">Le DXY conserve un soutien à 102,00 après trois semaines de progression et un rendement américain à 5,277 %. Le recul des créations d’emplois à 29 000 affaiblit toutefois l’argument d’un resserrement immédiat. Le taux à deux ans reste élevé à 4,83 %, maintenant l’avantage du dollar face aux devises à faible rendement. Un indice des services à 55,1 ou plus peut renforcer le billet vert. Verdict : biais ↗ au-dessus de 102,00.</div></div>
+          <div class="pair-card"><div class="pair-head"><div><span class="pair-name">DXY</span><span class="pair-val">102.2</span></div><span class="arrow up">↗</span></div><div class="pair-levels"><span class="lbl">Supports</span>101.80 | 101.20</div><div class="pair-levels"><span class="lbl">Résistances</span>102.80 | 103.40</div><div class="pair-note">Le DXY conserve un soutien à 102,00 après trois semaines de progression et un rendement américain à 5,277 %. Le recul des créations d’emplois à 29 000 affaiblit toutefois l’argument d’un resserrement immédiat. Le taux à deux ans reste élevé à 4,83 %, maintenant l’avantage du dollar face aux devises à faible rendement. Un indice des services à 55,1 ou plus peut renforcer le billet vert. Verdict : biais ↗ au-dessus de 102,00.</div></div>
           <div class="pair-card"><div class="pair-head"><div><span class="pair-name">EUR/USD</span><span class="pair-val">1.125</span></div><span class="arrow down">↘</span></div><div class="pair-levels"><span class="lbl">Supports</span>1.1200 | 1.1150 | 1.1080</div><div class="pair-levels"><span class="lbl">Résistances</span>1.1300 | 1.1370 | 1.1450</div><div class="pair-note">L’EUR/USD cote 1,1250, tandis que le dollar bénéficie d’un rendement américain à 5,277 %. L’euro souffre du stress sur les obligations françaises et de la perspective d’élections anticipées en Espagne. Le rendement américain à deux ans, à 4,83 %, maintient un différentiel défavorable à l’euro. Un discours moins accommodant de Joachim Nagel constitue le principal soutien. Verdict : biais ↘ sous 1,1300.</div></div>
           <div class="pair-card"><div class="pair-head"><div><span class="pair-name">GBP/USD</span><span class="pair-val">1.3232</span></div><span class="arrow flat">→</span></div><div class="pair-levels"><span class="lbl">Supports</span>1.3160 | 1.3080 | 1.3000</div><div class="pair-levels"><span class="lbl">Résistances</span>1.3300 | 1.3380 | 1.3450</div><div class="pair-note">La livre reste sensible au dollar fort et manque de donnée britannique majeure aujourd’hui.</div></div>
           <div class="pair-card"><div class="pair-head"><div><span class="pair-name">USD/JPY</span><span class="pair-val">157.73</span></div><span class="arrow up">↗</span></div><div class="pair-levels"><span class="lbl">Supports</span>156.80 | 155.90 | 154.80</div><div class="pair-levels"><span class="lbl">Résistances</span>158.20 | 159.00 | 160.00</div><div class="pair-note">Le rendement américain à 5,277 % domine malgré une confiance japonaise attendue à 35,3.</div></div>
@@ -129,5 +133,5 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></hea
     </div>
   </div>
 </div>
-<footer>Daily Fonda · 05/10/2026 08:31 UTC · Novex + APIs marché</footer>
+<footer>Daily Fonda · 05/10/2026 16:58 UTC · Novex + APIs marché</footer>
 </body></html>
