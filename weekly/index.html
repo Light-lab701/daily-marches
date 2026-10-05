@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Weekly Marchés & Macro — 27/09/2026 au 04/10/2026</title><style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#EEF2F7;color:#1a1a2e;font-size:14px;line-height:1.6}
-nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
-.nav-logo{font-weight:700;font-size:16px;color:#1a1a2e}
-.nav-tag{font-size:13px;color:#64748b;padding:6px 12px;border-radius:8px;font-weight:500;text-decoration:none}
-.nav-tag.active{background:#f1f5f9;color:#1a1a2e}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-r5iDVDLeEJ4tfGQ8wprwlL9ChsMiltO7Xl1TskzK3IM='; style-src 'unsafe-inline'; img-src 'none'; object-src 'none'; base-uri 'self'"><script>var f=new URLSearchParams(location.search).get("fond");if(f==="blanc"||f==="creme"||f==="sombre"){document.documentElement.dataset.fond=f;addEventListener("DOMContentLoaded",function(){document.querySelectorAll("a[data-onglet]").forEach(function(a){a.setAttribute("href",a.getAttribute("href").split("?")[0]+"?fond="+f)})})}</script>
+<title>Weekly Marchés & Macro — 27/09/2026 au 04/10/2026</title><style>:root,[data-fond=blanc]{--fond:#FFFFFF;--carte:#F8F4EC;--texte:#2B1F1A;--doux:#8B7355;--or:#A8864A;--titre:#7A5C1E;--ligne:#ECE3D2;--ok:#3F6B3A;--okf:#EEF3EA;--att:#8A5A12;--attf:#FBF1DF;--dan:#8E2F25;--danf:#F8E8E5;--ombre:rgba(0,0,0,.05);color-scheme:light}
+[data-fond=creme]{--fond:#F6F0E3;--carte:#FFFFFF;--texte:#2B1F1A;--doux:#6B573D;--or:#A8864A;--titre:#7A5C1E;--ligne:#E3D6BC;--ok:#3F6B3A;--okf:#EEF3EA;--att:#8A5A12;--attf:#FBF1DF;--dan:#8E2F25;--danf:#F8E8E5;--ombre:rgba(0,0,0,.06);color-scheme:light}
+[data-fond=sombre]{--fond:#0D0D0D;--carte:#2B1F1A;--texte:#E8DCC0;--doux:#B09A7C;--or:#C8A96B;--titre:#C8A96B;--ligne:#4A3527;--ok:#9CC28F;--okf:#1E2A1B;--att:#E0B060;--attf:#2E2414;--dan:#E08A7E;--danf:#2E1714;--ombre:rgba(0,0,0,.5);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--fond);color:var(--texte);font-size:14px;line-height:1.6}
+nav{background:var(--fond);border-bottom:1px solid var(--or);padding:0 32px;height:52px;display:flex;align-items:center;gap:24px;position:sticky;top:0;z-index:10}
+.nav-logo{font-weight:700;font-size:16px;color:var(--titre)}
+.nav-tag{font-size:13px;color:var(--doux);padding:6px 12px;border-radius:8px;font-weight:500;text-decoration:none}
+.nav-tag.active{background:var(--carte);color:var(--titre)}
 .nav-badge{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
-.nav-badge.bullish{background:#dcfce7;color:#16a34a}.nav-badge.bearish{background:#fee2e2;color:#dc2626}.nav-badge.neutral{background:#f1f5f9;color:#64748b}
-.ticker{background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 32px;display:flex;gap:28px;overflow-x:auto}
+.nav-badge.bullish{background:var(--okf);color:var(--ok)}.nav-badge.bearish{background:var(--danf);color:var(--dan)}.nav-badge.neutral{background:var(--carte);color:var(--doux)}
+.ticker{background:var(--fond);border-bottom:1px solid var(--ligne);padding:8px 32px;display:flex;gap:28px;overflow-x:auto}
 .t-item{display:flex;flex-direction:column;gap:1px;white-space:nowrap}
-.t-label{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:.7px;font-weight:600}
-.t-val{font-size:15px;font-weight:700;color:#1a1a2e}.t-val.gold{color:#b45309}
+.t-label{font-size:10px;color:var(--doux);text-transform:uppercase;letter-spacing:.7px;font-weight:600}
+.t-val{font-size:15px;font-weight:700;color:var(--texte)}.t-val.gold{color:var(--att)}
 .container{max-width:1200px;margin:0 auto;padding:24px 20px}
 .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 .col-left,.col-right{display:flex;flex-direction:column;gap:16px}
-.card{background:#fff;border-radius:16px;padding:20px;border:1px solid #e8edf3;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#64748b;margin-bottom:12px}
-.card p{color:#374151;margin-bottom:6px;font-size:13.5px}
+.card{background:var(--carte);border-radius:16px;padding:20px;border:1px solid var(--ligne);box-shadow:0 1px 3px var(--ombre)}
+.card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--titre);margin-bottom:12px}
+.card p{color:var(--texte);margin-bottom:6px;font-size:13.5px}
 .card ul,.card ol{list-style:none;padding:0}
-.card ul li,.card ol li{padding:6px 0 6px 10px;border-bottom:1px solid #f1f5f9;color:#374151;font-size:13.5px;position:relative}
+.card ul li,.card ol li{padding:6px 0 6px 10px;border-bottom:1px solid var(--ligne);color:var(--texte);font-size:13.5px;position:relative}
 .card ul li:last-child,.card ol li:last-child{border:none}
-.card ul li::before,.card ol li::before{content:'·';position:absolute;left:0;color:#3b82f6;font-weight:700}
-.card strong{color:#111827;font-weight:600}.card em{color:#6b7280;font-style:normal}
-.card h1,.card h2,.card h3{color:#111827;font-weight:700;margin:10px 0 6px;line-height:1.3}
+.card ul li::before,.card ol li::before{content:'·';position:absolute;left:0;color:var(--or);font-weight:700}
+.card strong{color:var(--texte);font-weight:600}.card em{color:var(--doux);font-style:normal}
+.card h1,.card h2,.card h3{color:var(--titre);font-weight:700;margin:10px 0 6px;line-height:1.3}
 .sentiment-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:7px}
-.sentiment-pill.buyer{background:#dcfce7;color:#15803d}.sentiment-pill.seller{background:#fee2e2;color:#b91c1c}
-.sentiment-row{display:flex;align-items:center;gap:8px;font-size:12px;color:#374151;margin-bottom:5px}
-.long-dot{color:#16a34a}.short-dot{color:#dc2626}.pct{flex:1}.pct-r{text-align:right}
+.sentiment-pill.buyer{background:var(--okf);color:var(--ok)}.sentiment-pill.seller{background:var(--danf);color:var(--dan)}
+.sentiment-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--texte);margin-bottom:5px}
+.long-dot{color:var(--ok)}.short-dot{color:var(--dan)}.pct{flex:1}.pct-r{text-align:right}
 .progress-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:1px;margin-bottom:10px}
-.bar-green{background:#16a34a;border-radius:3px 0 0 3px}.bar-red{background:#dc2626;border-radius:0 3px 3px 0}
+.bar-green{background:var(--ok);border-radius:3px 0 0 3px}.bar-red{background:var(--dan);border-radius:0 3px 3px 0}
 .ctx-table{width:100%;border-collapse:collapse;margin-top:8px}
-.ctx-table th{font-size:11px;color:#94a3b8;text-transform:uppercase;text-align:left;padding:4px 8px;font-weight:600}
-.ctx-table td{padding:7px 8px;border-top:1px solid #f1f5f9;font-size:13.5px;color:#374151}
-.ctx-table td:first-child{font-weight:600;color:#111827}
-footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></head><body>
+.ctx-table th{font-size:11px;color:var(--doux);text-transform:uppercase;text-align:left;padding:4px 8px;font-weight:600}
+.ctx-table td{padding:7px 8px;border-top:1px solid var(--ligne);font-size:13.5px;color:var(--texte)}
+.ctx-table td:first-child{font-weight:600;color:var(--texte)}
+.card a{color:var(--titre)}
+footer{text-align:center;padding:24px;color:var(--doux);font-size:11px}</style></head><body>
 <nav>
   <span class="nav-logo">Weekly Fonda</span>
-  <a class="nav-tag" href="../">Daily</a>
+  <a class="nav-tag" data-onglet href="../">Daily</a>
   <span class="nav-tag active">Weekly</span>
-  <a class="nav-tag" href="../newsletter/">Newsletter</a>
+  <a class="nav-tag" data-onglet href="../newsletter/">Newsletter</a>
   <span class="nav-badge bearish">📉 Risk-Off_</span>
 </nav>
 <div class="ticker">
-  <div class="t-item"><div class="t-label">Gold</div><div class="t-val gold">4162.3</div></div>
-  <div class="t-item"><div class="t-label">DXY</div><div class="t-val">101.92</div></div>
-  <div class="t-item"><div class="t-label">EUR/USD</div><div class="t-val">1.1251</div></div>
-  <div class="t-item"><div class="t-label">GBP/USD</div><div class="t-val">1.322</div></div>
-  <div class="t-item"><div class="t-label">USD/JPY</div><div class="t-val">157.82</div></div>
-  <div class="t-item"><div class="t-label">US 10Y</div><div class="t-val">5.277%</div></div>
-  <div class="t-item"><div class="t-label">Spread T2-T10</div><div class="t-val">0.447%</div></div>
+  <div class="t-item"><div class="t-label">Gold</div><div class="t-val gold">4163.8</div></div>
+  <div class="t-item"><div class="t-label">DXY</div><div class="t-val">102.2</div></div>
+  <div class="t-item"><div class="t-label">EUR/USD</div><div class="t-val">1.125</div></div>
+  <div class="t-item"><div class="t-label">GBP/USD</div><div class="t-val">1.3232</div></div>
+  <div class="t-item"><div class="t-label">USD/JPY</div><div class="t-val">157.73</div></div>
+  <div class="t-item"><div class="t-label">US 10Y</div><div class="t-val">5.324%</div></div>
+  <div class="t-item"><div class="t-label">Spread T2-T10</div><div class="t-val">0.494%</div></div>
 </div>
 <div class="container">
   <div style="margin-bottom:20px">
-    <h1 style="font-size:22px;font-weight:800;color:#111827">Weekly Marchés & Macro</h1>
-    <p style="color:#64748b;font-size:13px">Semaine du 27/09/2026 au 04/10/2026</p>
+    <h1 style="font-size:22px;font-weight:800;color:var(--titre)">Weekly Marchés & Macro</h1>
+    <p style="color:var(--doux);font-size:13px">Semaine du 27/09/2026 au 04/10/2026</p>
   </div>
   <div class="grid">
     <div class="col-left">
@@ -115,19 +120,20 @@ footer{text-align:center;padding:24px;color:#94a3b8;font-size:11px}</style></hea
 <p>⚠️ Des pistes, pas des ordres. Valide chaque biais sur ton H4 avant d'entrer.</p>
 
       </div>
+      
       <div class="card">
         <div class="card-title">📊 Marchés Clés</div>
         <table class="ctx-table">
           <tr><th>Instrument</th><th>Valeur</th></tr>
-          <tr><td>Gold (XAU/USD)</td><td>4162.3</td></tr>
-          <tr><td>DXY</td><td>101.92</td></tr>
-          <tr><td>US 10Y</td><td>5.277%</td></tr>
+          <tr><td>Gold (XAU/USD)</td><td>4163.8</td></tr>
+          <tr><td>DXY</td><td>102.2</td></tr>
+          <tr><td>US 10Y</td><td>5.324%</td></tr>
           <tr><td>US 2Y</td><td>4.83%</td></tr>
-          <tr><td>Spread T2-T10</td><td>0.447%</td></tr>
+          <tr><td>Spread T2-T10</td><td>0.494%</td></tr>
         </table>
       </div>
     </div>
   </div>
 </div>
-<footer>Weekly Fonda · Généré le 04/10/2026 20:00 · Perplexity Sonar + APIs marché</footer>
+<footer>Weekly Fonda · Généré le 05/10/2026 16:58 · Perplexity Sonar + APIs marché</footer>
 </body></html>
